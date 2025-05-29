@@ -1,14 +1,17 @@
-import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.http.MediaType;
-import reactor.core.publisher.Mono;
+import org.springframework.web.reactive.function.client.WebClient;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class KoreaInvestmentApiToken {
 
-    public static void main(String[] args) {
-        String appKey = "PS2gdFcrejaVTJTjHaH2gyATtCbyLqbU4Q1z";
-        String appSecret = "EwmUAIJwbUH4+jW915olem1VTtnndAkbQ6P+2XXUn28UtawSHwV19jIiGzqgPtF5YFmF6RncI4n3wUTddr9CX5j3wD5pq7VvD1XEAPQ9lC6R67jDFF7PPjvWauqH5cDeXBe+MvlxGwSubakivjxpfYA3cPRNN/F0OL4oJpABC7x+NkRw4ME=";
+    public static void main(String[] args) throws Exception {
+        String appKey = "";
+        String appSecret = "";
+
+        System.out.println("Try");
+        KisApiConfig kisApiConfig = new KisApiConfig("application.properties");
 
         // 실전: https://openapi.koreainvestment.com:9443
         // 모의: https://openapivts.koreainvestment.com:29443
@@ -21,8 +24,8 @@ public class KoreaInvestmentApiToken {
 
         Map<String, String> body = new HashMap<>();
         body.put("grant_type", "client_credentials");
-        body.put("appkey", appKey);
-        body.put("appsecret", appSecret);
+        body.put("appkey", kisApiConfig.getAppKey());
+        body.put("appsecret", kisApiConfig.getAppSecret());
 
         String accessToken = webClient.post()
                 .uri("")
@@ -38,7 +41,16 @@ public class KoreaInvestmentApiToken {
     // 응답 객체
     public static class TokenResponse {
         private String access_token;
-        public String getAccess_token() { return access_token; }
-        public void setAccess_token(String access_token) { this.access_token = access_token; }
+
+        public String getAccess_token() {
+            return access_token;
+        }
+
+        public void setAccess_token(String access_token) {
+            this.access_token = access_token;
+        }
     }
 }
+
+
+
