@@ -1,7 +1,7 @@
-package com.seopport.kis_api.controller;
+package com.seopport.kisvolumerank.controller;
 
-import com.seopport.kis_api.dto.ResponseOutputDTO;
-import com.seopport.kis_api.service.KisService;
+import com.seopport.kisvolumerank.dto.ResponseOutputDTO;
+import com.seopport.kisvolumerank.service.KisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

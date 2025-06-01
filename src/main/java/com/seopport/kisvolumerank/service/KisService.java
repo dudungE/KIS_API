@@ -1,8 +1,8 @@
-package com.seopport.kis_api.service;
+package com.seopport.kisvolumerank.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.seopport.kis_api.dto.ResponseOutputDTO;
+import com.seopport.kisvolumerank.dto.ResponseOutputDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
