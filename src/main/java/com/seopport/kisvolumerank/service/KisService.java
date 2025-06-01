@@ -3,6 +3,7 @@ package com.seopport.kisvolumerank.service;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.seopport.kisvolumerank.dto.ResponseOutputDTO;
+import com.seopport.kisvolumerank.dto.StockPriceResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
@@ -33,6 +34,7 @@ public class KisService {
         this.webClient = webClientBuilder.baseUrl("https://openapi.koreainvestment.com:9443").build();
         this.objectMapper =objectMapper;
     }
+
     private HttpHeaders createVolumeRankHttpHeaders() {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -79,6 +81,7 @@ public class KisService {
             return Mono.error(e);
         }
     }
+
     public Mono<List<ResponseOutputDTO>> getVolumeRank() {
         HttpHeaders headers = createVolumeRankHttpHeaders();
 
@@ -100,7 +103,8 @@ public class KisService {
                 .retrieve()
                 .bodyToMono(String.class)
                 .flatMap(response -> parseFVolumeRank(response));
-
     }
+
+
 }
 

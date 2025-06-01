@@ -3,8 +3,8 @@ package com.seopport.kisvolumerank.controller;
 import com.seopport.kisvolumerank.dto.ResponseOutputDTO;
 import com.seopport.kisvolumerank.service.KisService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
@@ -13,6 +13,7 @@ import java.util.List;
 public class KisViewController {
 
     private final KisService kisService;
+
 
     @Autowired
     public KisViewController(KisService kisService) {
@@ -26,4 +27,5 @@ public class KisViewController {
         model.addAttribute("volumeRankList", volumeRankList);
         return "volume-rank"; // templates/volume-rank.html
     }
+
 }
