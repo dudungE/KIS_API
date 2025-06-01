@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/515242b1-4af2-43d6-aca3-c97be1d9933d)# kis api usage
+# kis api usage
 한국투자증권 Open API 데이터소싱 코드 practice
 
 
