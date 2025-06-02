@@ -79,6 +79,7 @@ public class KospiService {
                 result.add(dto);
             }
 
+            System.out.println("resultDebug: " + result);
 
 //            // 1. output1이 배열이면 사용
 //            JsonNode output1 = root.path("output1");
@@ -92,16 +93,32 @@ public class KospiService {
 //                    result.add(dto);
 //                }
 //            }
-            System.out.println("resultDebug: " + result);
+
 
             // 2. output2도 배열이면 추가 (보통 기간 조회 시 사용)
+//            JsonNode output2 = root.path("output2");
+//            if (output2.isArray() && output2.size() > 0) {
+//                for (JsonNode node : output2) {
+//                    KospiIndexDailyDto dto = objectMapper.treeToValue(node, KospiIndexDailyDto.class);
+//                    result.add(dto);
+//                }
+//            }
+
+            // output2 파싱 시, 예외 발생해도 무시
             JsonNode output2 = root.path("output2");
             if (output2.isArray() && output2.size() > 0) {
                 for (JsonNode node : output2) {
-                    KospiIndexDailyDto dto = objectMapper.treeToValue(node, KospiIndexDailyDto.class);
-                    result.add(dto);
+                    try {
+                        KospiIndexDailyDto dto = objectMapper.treeToValue(node, KospiIndexDailyDto.class);
+                        result.add(dto);
+                    } catch (Exception e) {
+                        System.out.println("output2 변환 실패: " + e.getMessage());
+                        // 필요 시, output2에 맞는 별도 DTO로 파싱
+                    }
                 }
             }
+
+            System.out.println("resultDebug: " + result);
 
             // 디버깅
             if (result.isEmpty()) {
