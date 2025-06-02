@@ -23,8 +23,6 @@ public class KospiController {
 
     private final KospiService kospiService;
 
-
-
     @GetMapping("/kospi/daily")
     public String kospiDailyView(Model model) {
         List<KospiIndexDailyDto> kospiList = kospiService.getKospiDailyIndices();
