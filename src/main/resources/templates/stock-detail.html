@@ -16,8 +16,8 @@
   <tr><th>현재가</th><td th:text="${stock.price}"></td></tr>
   <tr><th>전일대비</th>
     <td>
-      <span th:if="${stock.changeSign} == '1'" style="color:red">▲</span>
-      <span th:if="${stock.changeSign} == '2'" style="color:blue">▼</span>
+      <span th:if="${stock.changeSign} == '2'" style="color:red">▲</span>
+      <span th:if="${stock.changeSign} == '1'" style="color:blue">▼</span>
       <span th:text="${stock.dayOverDayChange}"></span>
     </td>
   </tr>
