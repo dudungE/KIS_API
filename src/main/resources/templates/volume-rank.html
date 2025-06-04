@@ -27,7 +27,10 @@
   <tbody>
   <tr th:each="item : ${volumeRankList}">
     <td th:text="${item.dataRank}"></td>
-    <td th:text="${item.htsKorIsnm}"></td>
+<!--    <td th:text="${item.htsKorIsnm}"></td>-->
+    <td>
+      <a th:href="@{'/stock/' + ${item.mkscShrnIscd}}" th:text="${item.htsKorIsnm}"></a>
+    </td>
     <td th:text="${item.mkscShrnIscd}"></td>
     <td th:text="${item.stckPrpr}"></td>
     <td th:text="${item.prdyVrss}"></td>
