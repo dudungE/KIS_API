@@ -16,7 +16,7 @@ public class StockController {
         this.stockService = stockService;
     }
 
-    @GetMapping("/stocks/{iscd}")
+    @GetMapping("/stock/{iscd}")
     public String getStock(@PathVariable String iscd, Model model) {
         StockPriceResponse response = stockService.getStockPrice(iscd);
         model.addAttribute("stock", response.getOutput());
