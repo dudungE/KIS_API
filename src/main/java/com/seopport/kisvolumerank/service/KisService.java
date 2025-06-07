@@ -3,6 +3,7 @@ package com.seopport.kisvolumerank.service;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.seopport.kisvolumerank.dto.ResponseOutputDTO;
+import com.seopport.kisvolumerank.service.token.KisAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
@@ -22,22 +23,24 @@ public class KisService {
     @Value("${appsecret}")
     private String appSecret;
 
-    @Value("${access_token}")
-    private String accessToken;
+//    @Value("${access_token}")
+//    private String accessToken;
 
+    private final KisAuthService kisAuthService;
     private final WebClient webClient;
     private final ObjectMapper objectMapper;
 
     @Autowired
     public KisService(WebClient.Builder webClientBuilder, ObjectMapper objectMapper) {
         this.webClient = webClientBuilder.baseUrl("https://openapi.koreainvestment.com:9443").build();
-        this.objectMapper =objectMapper;
+        this.objectMapper = objectMapper;
+        this.kisAuthService = new KisAuthService(webClientBuilder);
     }
 
     private HttpHeaders createVolumeRankHttpHeaders() {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.setBearerAuth(accessToken);
+        headers.setBearerAuth(kisAuthService.getAccessToken());
         headers.set("appkey", appkey);
         headers.set("appSecret", appSecret);
         headers.set("tr_id", "FHPST01710000");
