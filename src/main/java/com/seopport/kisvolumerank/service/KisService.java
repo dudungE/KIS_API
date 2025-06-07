@@ -17,13 +17,13 @@ import java.util.List;
 
 @Service
 public class KisService {
-    @Value("${appkey}")
+    @Value("${kis.api.appkey}")
     private String appkey;
 
-    @Value("${appsecret}")
+    @Value("${kis.api.appsecret}")
     private String appSecret;
 
-    @Value("${access_token}")
+    @Value("${kis.api.token}")
     private String accessToken;
 
     private final WebClient webClient;
