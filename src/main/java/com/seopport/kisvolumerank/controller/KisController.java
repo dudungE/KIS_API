@@ -23,4 +23,5 @@ public class KisController {
     public Mono<List<ResponseOutputDTO>> getVolumeRank() {
         return kisService.getVolumeRank();
     }
+
 }

@@ -1,0 +1,66 @@
+/* 기본 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    padding: 40px;
+    background-color: #f7f7f7;
+}
+
+.btn-group {
+    margin: 20px 0;
+}
+
+.btn-toggle {
+    padding: 10px 22px;
+    margin-right: 10px;
+    background: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-toggle.active {
+    background: #155ab6;
+}
+
+.section {
+    display: none;
+    margin-top: 24px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 종목 검색 영역 */
+.stock-search input[type="text"] {
+    padding: 8px;
+    font-size: 16px;
+    width: 200px;
+    margin-right: 10px;
+}
+
+.stock-search button {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.stock-search button:hover {
+    background-color: #155ab6;
+}
