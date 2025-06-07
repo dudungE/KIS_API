@@ -28,4 +28,10 @@ public class KisViewController {
         return "volume-rank"; // templates/volume-rank.html
     }
 
+    @GetMapping("/volume-rank-fragment")
+    public String getVolumeRankFragment(Model model) {
+        model.addAttribute("volumeRankList", kisService.getVolumeRank());
+        return "volume-rank :: volumeRankTable"; // fragment만 반환
+    }
+
 }

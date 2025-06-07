@@ -3,7 +3,6 @@ package com.seopport.kisvolumerank.service;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.seopport.kisvolumerank.dto.ResponseOutputDTO;
-import com.seopport.kisvolumerank.dto.StockPriceResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
@@ -17,6 +16,7 @@ import java.util.List;
 
 @Service
 public class KisService {
+    // 필드 주입
     @Value("${kis.api.appkey}")
     private String appkey;
 
@@ -26,15 +26,18 @@ public class KisService {
     @Value("${kis.api.token}")
     private String accessToken;
 
+    //    WebClient: 비동기 HTTP 클라이언트로 KIS API 호출에 사용
+//    ObjectMapper: JSON 응답을 객체로 변환하는 Jackson 라이브러리 컴포넌트
     private final WebClient webClient;
     private final ObjectMapper objectMapper;
 
     @Autowired
     public KisService(WebClient.Builder webClientBuilder, ObjectMapper objectMapper) {
         this.webClient = webClientBuilder.baseUrl("https://openapi.koreainvestment.com:9443").build();
-        this.objectMapper =objectMapper;
+        this.objectMapper = objectMapper;
     }
 
+    //    HTTP 헤더 생성
     private HttpHeaders createVolumeRankHttpHeaders() {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -46,6 +49,8 @@ public class KisService {
         return headers;
     }
 
+
+    // API 응답 파싱 (parseFVolumeRank)
     private Mono<List<ResponseOutputDTO>> parseFVolumeRank(String response) {
         try {
             List<ResponseOutputDTO> responseDataList = new ArrayList<>();
@@ -82,8 +87,10 @@ public class KisService {
         }
     }
 
+
     public Mono<List<ResponseOutputDTO>> getVolumeRank() {
         HttpHeaders headers = createVolumeRankHttpHeaders();
+
 
         return webClient.get()
                 .uri(uriBuilder -> uriBuilder.path("/uapi/domestic-stock/v1/quotations/volume-rank")
