@@ -9,8 +9,23 @@ function goToStockDetail() {
     }
 }
 
+// 숨기는 함수 추가
+function hideAllSections() {
+    document.getElementById('rankingSection').style.display = 'none';
+    document.getElementById('priceChangeRanking').style.display = 'none';
+    document.getElementById('chartSection').style.display = 'none';
+}
+
+//function setActiveButton(index) {
+//    document.querySelectorAll('.btn-toggle').forEach((btn, i) => {
+//        btn.classList.toggle('active', i === index);
+//    });
+//}
+
+
 // 거개량 랭킹
 function showRanking() {
+hideAllSections();
     document.getElementById('rankingSection').style.display = 'block';
     document.getElementById('chartSection').style.display = 'none';
     document.querySelectorAll('.btn-toggle')[0].classList.add('active');
@@ -31,6 +46,8 @@ function showRanking() {
 
 // 급상승 종목 보기 (버튼 클릭 시 호출)
 function priceChangeRanking() {
+    hideAllSections();
+
     // 섹션 가시성 설정
     document.getElementById('priceChangeRanking').style.display = 'block';
     document.getElementById('chartSection').style.display = 'none';
@@ -53,10 +70,9 @@ function priceChangeRanking() {
 
 
 
-
-
 // 차트 보기
 function showChart() {
+    hideAllSections();
     document.getElementById('rankingSection').style.display = 'none';
     document.getElementById('chartSection').style.display = 'block';
     document.querySelectorAll('.btn-toggle')[0].classList.remove('active');
