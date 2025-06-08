@@ -105,6 +105,8 @@ bin/
 # ========================
 # Ignore application.properties (uncomment if you want to ignore)
 /*application.properties
+application.properties
+application.yml
 
 # Crashlytics (Android)
 com_crashlytics_export_strings.xml
