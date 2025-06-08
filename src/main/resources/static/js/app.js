@@ -25,7 +25,7 @@ function hideAllSections() {
 
 // 거개량 랭킹
 function showRanking() {
-hideAllSections();
+    hideAllSections();
     document.getElementById('rankingSection').style.display = 'block';
     document.getElementById('chartSection').style.display = 'none';
     document.querySelectorAll('.btn-toggle')[0].classList.add('active');
