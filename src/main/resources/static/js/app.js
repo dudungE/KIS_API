@@ -86,6 +86,17 @@ function hideAllSections() {
 //}
 //
 //
+//     document.getElementById('priceChangeRanking').style.display = 'none';
+//     document.getElementById('chartSection').style.display = 'none';
+// }
+
+//function setActiveButton(index) {
+//    document.querySelectorAll('.btn-toggle').forEach((btn, i) => {
+//        btn.classList.toggle('active', i === index);
+//    });
+//}
+
+
 
 // 차트 보기
 function showChart() {
@@ -190,3 +201,4 @@ function priceDownRanking() {
             document.getElementById('priceDownRanking').innerHTML = title.outerHTML + table.outerHTML;
         });
 }
+

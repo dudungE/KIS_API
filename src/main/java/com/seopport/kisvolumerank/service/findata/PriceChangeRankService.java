@@ -54,6 +54,7 @@ public class PriceChangeRankService {
             if (outputNode != null) {
                 for (JsonNode node : outputNode) {
                     PriceChangeRankDto dto = new PriceChangeRankDto();
+
                     dto.setStck_shrn_iscd(node.get("stck_shrn_iscd").asText());
                     dto.setData_rank(node.get("data_rank").asText());
                     dto.setHts_kor_isnm(node.get("hts_kor_isnm").asText());
@@ -78,6 +79,7 @@ public class PriceChangeRankService {
                     dto.setOprc_vrss_prpr_rate(node.get("oprc_vrss_prpr_rate").asText());
                     dto.setPrd_rsfl(node.get("prd_rsfl").asText());
                     dto.setPrd_rsfl_rate(node.get("prd_rsfl_rate").asText());
+
 
                     responseDataList.add(dto);
                 }

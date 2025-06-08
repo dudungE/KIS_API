@@ -1,3 +1,4 @@
+
 //package com.seopport.kisvolumerank.dto.findata;
 //
 //import com.fasterxml.jackson.annotation.JsonProperty;
@@ -82,10 +83,12 @@
 //}
 
 
+
 package com.seopport.kisvolumerank.dto.findata;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+
 
 /**
  * 가격 변동 랭킹 DTO (필드명과 JSON 속성명을 동일하게 맞춤)
@@ -188,4 +191,5 @@ public class PriceChangeRankDto {
     /** 기간 누적 상승/하락률(%) */
     @JsonProperty("prd_rsfl_rate")
     private String prd_rsfl_rate;
+
 }
