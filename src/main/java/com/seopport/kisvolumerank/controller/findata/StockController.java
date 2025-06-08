@@ -23,4 +23,12 @@ public class StockController {
         return "stock-detail";
     }
 
+    @GetMapping("/stock/{iscd}/price")
+    public String getPrice(@PathVariable String iscd, Model model) {
+        StockPriceResponse response = stockService.getStockPrice(iscd);
+        model.addAttribute("stock", response.getOutput());
+        model.addAttribute("message", response.getMsg1());
+        return "stock-sise"; // Thymeleaf fragment 사용 권장
+    }
+
 }
