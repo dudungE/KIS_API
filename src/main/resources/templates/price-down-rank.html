@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>국내주식 등락률 순위</title>
+  <meta charset="UTF-8">
+  <style>
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+    th { background-color: #f2f2f2; }
+    tr:hover { background-color: #f5f5f5; }
+  </style>
+</head>
+<body>
+<h2>국내주식 등락률 순위</h2>
+<table>
+  <thead>
+  <tr>
+    <th>순위</th>
+    <th>종목명</th>
+    <th>종목코드</th>
+    <th>현재가</th>
+    <th>전일대비</th>
+    <th>등락 부호</th>
+    <th>등락률(%)</th>
+    <th>거래량</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="item, iterStat : ${priceChangeRankList}">
+    <!--    <tr th:each="item, iterStat : ${priceChangeRankList}" th:if="${item.prdy_vrss_sign} == '2'">-->
+    <td th:text="${iterStat.count}"></td>
+    <!--        <td th:each></td>-->
+    <!--        <td th:text="${item.koreanStockName}"></td>-->
+    <td>
+      <a th:href="@{'/stock/' + ${item.stck_shrn_iscd}}"
+         th:text="${item.hts_kor_isnm}"></a>
+    </td>
+    <td th:text="${item.stck_shrn_iscd}"></td>
+    <td th:text="${item.stck_prpr}"></td>
+    <!--        <td th:text="${item.prdy_vrss}"></td>-->
+    <td th:text="${item.prdy_vrss}"
+        th:style="${item.prdy_vrss_sign} == '2' ? 'color:red;' : (${item.prdy_vrss_sign} == '1' ? 'color:blue;' : '')">
+    </td>
+    <td th:text="${item.prdy_vrss_sign}"></td>
+    <td th:text="${item.prdy_ctrt}"></td>
+    <td th:text="${item.acml_vol}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

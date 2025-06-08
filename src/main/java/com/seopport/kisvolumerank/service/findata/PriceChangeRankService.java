@@ -54,30 +54,30 @@ public class PriceChangeRankService {
             if (outputNode != null) {
                 for (JsonNode node : outputNode) {
                     PriceChangeRankDto dto = new PriceChangeRankDto();
-                    dto.setStockShortCode(node.get("stck_shrn_iscd").asText());
-                    dto.setDataRank(node.get("data_rank").asText());
-                    dto.setKoreanStockName(node.get("hts_kor_isnm").asText());
-                    dto.setCurrentPrice(node.get("stck_prpr").asText());
-                    dto.setPriceChange(node.get("prdy_vrss").asText());
-                    dto.setPriceChangeSign(node.get("prdy_vrss_sign").asText());
-                    dto.setPriceChangeRate(node.get("prdy_ctrt").asText());
-                    dto.setAccumulatedVolume(node.get("acml_vol").asText());
-                    dto.setHighestPrice(node.get("stck_hgpr").asText());
-                    dto.setHighestPriceHour(node.get("hgpr_hour").asText());
-                    dto.setHighestPriceDate(node.get("acml_hgpr_date").asText());
-                    dto.setLowestPrice(node.get("stck_lwpr").asText());
-                    dto.setLowestPriceHour(node.get("lwpr_hour").asText());
-                    dto.setLowestPriceDate(node.get("acml_lwpr_date").asText());
-                    dto.setLowestPriceToCurrentRate(node.get("lwpr_vrss_prpr_rate").asText());
-                    dto.setPreviousCloseToCurrentRate(node.get("dsgt_date_clpr_vrss_prpr_rate").asText());
-                    dto.setConsecutiveUpDays(node.get("cnnt_ascn_dynu").asText());
-                    dto.setHighestPriceChangeRate(node.get("hgpr_vrss_prpr_rate").asText());
-                    dto.setConsecutiveDownDays(node.get("cnnt_down_dynu").asText());
-                    dto.setOpenPriceSign(node.get("oprc_vrss_prpr_sign").asText());
-                    dto.setOpenPriceChange(node.get("oprc_vrss_prpr").asText());
-                    dto.setOpenPriceChangeRate(node.get("oprc_vrss_prpr_rate").asText());
-                    dto.setPeriodRiseFall(node.get("prd_rsfl").asText());
-                    dto.setPeriodRiseFallRate(node.get("prd_rsfl_rate").asText());
+                    dto.setStck_shrn_iscd(node.get("stck_shrn_iscd").asText());
+                    dto.setData_rank(node.get("data_rank").asText());
+                    dto.setHts_kor_isnm(node.get("hts_kor_isnm").asText());
+                    dto.setStck_prpr(node.get("stck_prpr").asText());
+                    dto.setPrdy_vrss(node.get("prdy_vrss").asText());
+                    dto.setPrdy_vrss_sign(node.get("prdy_vrss_sign").asText());
+                    dto.setPrdy_ctrt(node.get("prdy_ctrt").asText());
+                    dto.setAcml_vol(node.get("acml_vol").asText());
+                    dto.setStck_hgpr(node.get("stck_hgpr").asText());
+                    dto.setHgpr_hour(node.get("hgpr_hour").asText());
+                    dto.setAcml_hgpr_date(node.get("acml_hgpr_date").asText());
+                    dto.setStck_lwpr(node.get("stck_lwpr").asText());
+                    dto.setLwpr_hour(node.get("lwpr_hour").asText());
+                    dto.setAcml_lwpr_date(node.get("acml_lwpr_date").asText());
+                    dto.setLwpr_vrss_prpr_rate(node.get("lwpr_vrss_prpr_rate").asText());
+                    dto.setDsgt_date_clpr_vrss_prpr_rate(node.get("dsgt_date_clpr_vrss_prpr_rate").asText());
+                    dto.setCnnt_ascn_dynu(node.get("cnnt_ascn_dynu").asText());
+                    dto.setHgpr_vrss_prpr_rate(node.get("hgpr_vrss_prpr_rate").asText());
+                    dto.setCnnt_down_dynu(node.get("cnnt_down_dynu").asText());
+                    dto.setOprc_vrss_prpr_sign(node.get("oprc_vrss_prpr_sign").asText());
+                    dto.setOprc_vrss_prpr(node.get("oprc_vrss_prpr").asText());
+                    dto.setOprc_vrss_prpr_rate(node.get("oprc_vrss_prpr_rate").asText());
+                    dto.setPrd_rsfl(node.get("prd_rsfl").asText());
+                    dto.setPrd_rsfl_rate(node.get("prd_rsfl_rate").asText());
 
                     responseDataList.add(dto);
                 }

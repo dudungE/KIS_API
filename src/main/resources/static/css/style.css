@@ -64,3 +64,8 @@ th, td {
 .stock-search button:hover {
     background-color: #155ab6;
 }
+
+.btn-toggle.active {
+    background-color: #1565c0;
+    font-weight: bold;
+}

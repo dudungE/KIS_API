@@ -20,19 +20,30 @@
         <th>종목코드</th>
         <th>현재가</th>
         <th>전일대비</th>
+        <th>등락 부호</th>
         <th>등락률(%)</th>
         <th>거래량</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="item, iterStat : ${priceChangeRankList}">
+<!--    <tr th:each="item, iterStat : ${priceChangeRankList}" th:if="${item.prdy_vrss_sign} == '2'">-->
         <td th:text="${iterStat.count}"></td>
-        <td th:text="${item.koreanStockName}"></td>
-        <td th:text="${item.stockShortCode}"></td>
-        <td th:text="${item.currentPrice}"></td>
-        <td th:text="${item.priceChangeSign}"></td>
-        <td th:text="${item.lowestPriceToCurrentRate}"></td>
-        <td th:text="${item.accumulatedVolume}"></td>
+<!--        <td th:each></td>-->
+<!--        <td th:text="${item.koreanStockName}"></td>-->
+        <td>
+            <a th:href="@{'/stock/' + ${item.stck_shrn_iscd}}"
+               th:text="${item.hts_kor_isnm}"></a>
+        </td>
+        <td th:text="${item.stck_shrn_iscd}"></td>
+        <td th:text="${item.stck_prpr}"></td>
+<!--        <td th:text="${item.prdy_vrss}"></td>-->
+        <td th:text="${item.prdy_vrss}"
+            th:style="${item.prdy_vrss_sign} == '2' ? 'color:red;' : (${item.prdy_vrss_sign} == '1' ? 'color:blue;' : '')">
+        </td>
+        <td th:text="${item.prdy_vrss_sign}"></td>
+        <td th:text="${item.prdy_ctrt}"></td>
+        <td th:text="${item.acml_vol}"></td>
     </tr>
     </tbody>
 </table>
