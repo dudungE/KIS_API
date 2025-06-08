@@ -1,6 +1,6 @@
-package com.seopport.kisvolumerank.service;
+package com.seopport.kisvolumerank.service.findata;
 
-import com.seopport.kisvolumerank.dto.StockPriceResponse;
+import com.seopport.kisvolumerank.dto.findata.StockPriceResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;

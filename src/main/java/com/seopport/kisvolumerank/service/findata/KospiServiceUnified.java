@@ -1,8 +1,8 @@
-package com.seopport.kisvolumerank.service;
+package com.seopport.kisvolumerank.service.findata;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.seopport.kisvolumerank.dto.KospiIndexUnifiedDto;
+import com.seopport.kisvolumerank.dto.findata.KospiIndexUnifiedDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;

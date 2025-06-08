@@ -1,8 +1,7 @@
-package com.seopport.kisvolumerank.controller;
+package com.seopport.kisvolumerank.controller.findata;
 
-import com.seopport.kisvolumerank.dto.StockPriceResponse;
-import com.seopport.kisvolumerank.service.KisService;
-import com.seopport.kisvolumerank.service.StockService;
+import com.seopport.kisvolumerank.dto.findata.StockPriceResponse;
+import com.seopport.kisvolumerank.service.findata.StockService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
