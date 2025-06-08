@@ -1,7 +1,7 @@
-package com.seopport.kisvolumerank.controller;
+package com.seopport.kisvolumerank.controller.findata;
 
-import com.seopport.kisvolumerank.dto.ResponseOutputDTO;
-import com.seopport.kisvolumerank.service.KisService;
+import com.seopport.kisvolumerank.dto.findata.ResponseOutputDTO;
+import com.seopport.kisvolumerank.service.findata.KisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,4 +1,4 @@
-package com.seopport.kisvolumerank.dto;
+package com.seopport.kisvolumerank.dto.findata;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

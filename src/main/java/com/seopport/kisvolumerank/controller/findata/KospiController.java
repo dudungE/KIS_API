@@ -1,20 +1,12 @@
-package com.seopport.kisvolumerank.controller;
+package com.seopport.kisvolumerank.controller.findata;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.seopport.kisvolumerank.dto.IndexData;
-import com.seopport.kisvolumerank.dto.KospiIndexDailyDto;
-import com.seopport.kisvolumerank.service.KospiService;
+import com.seopport.kisvolumerank.dto.findata.KospiIndexDailyDto;
+import com.seopport.kisvolumerank.service.findata.KospiService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
-import reactor.util.function.Tuple2;
-import reactor.util.function.Tuples;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Controller

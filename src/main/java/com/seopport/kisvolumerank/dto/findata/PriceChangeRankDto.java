@@ -1,4 +1,4 @@
-package com.seopport.kisvolumerank.dto;
+package com.seopport.kisvolumerank.dto.findata;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

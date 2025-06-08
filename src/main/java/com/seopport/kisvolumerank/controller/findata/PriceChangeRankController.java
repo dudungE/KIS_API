@@ -1,7 +1,7 @@
-package com.seopport.kisvolumerank.controller;
+package com.seopport.kisvolumerank.controller.findata;
 
-import com.seopport.kisvolumerank.dto.PriceChangeRankDto;
-import com.seopport.kisvolumerank.service.PriceChangeRankService;
+import com.seopport.kisvolumerank.dto.findata.PriceChangeRankDto;
+import com.seopport.kisvolumerank.service.findata.PriceChangeRankService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
