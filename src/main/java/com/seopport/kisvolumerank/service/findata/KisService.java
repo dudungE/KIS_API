@@ -111,7 +111,5 @@ public class KisService {
                 .bodyToMono(String.class)
                 .flatMap(response -> parseFVolumeRank(response));
     }
-
-
 }
 
