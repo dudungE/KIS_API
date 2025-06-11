@@ -120,20 +120,18 @@ function showRanking() {
 }
 
 
-
 function priceUpRanking() {
     hideAllSections();
-    document.getElementById('priceUpRanking').style.display = 'block';
+    const rankingSection = document.getElementById('priceUpRanking');
+    rankingSection.style.display = 'block';
     fetch('/price-up-rank')
         .then(response => response.text())
         .then(html => {
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = html;
-            const table = tempDiv.querySelector('table');
-            const title = tempDiv.querySelector('h2');
-            document.getElementById('priceUpRanking').innerHTML = title.outerHTML + table.outerHTML;
+            rankingSection.innerHTML = html;
         });
 }
+
+
 
 function priceDownRanking() {
     hideAllSections();
