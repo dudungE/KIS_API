@@ -71,22 +71,50 @@ document.querySelectorAll('.btn-toggle').forEach((btn, idx) => {
 });
 
 
+
+// 1. 재사용 함수 정의
 // 페이지네이션 바에 이벤트 위임
-document.getElementById('rankingSection').addEventListener('click', function(e) {
-    // .pagination a 요소 클릭 시
-    if (e.target.matches('.pagination a')) {
-        e.preventDefault(); // 기본 링크 이동 막기
-        fetch(e.target.href)
-            .then(response => response.text())
-            .then(html => {
-                // 새로 받은 HTML에서 테이블/페이지네이션 부분만 추출
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = html;
-                // 예: 전체 조각 삽입
-                this.innerHTML = tempDiv.innerHTML;
-            });
-    }
-});
+function setupPagination(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+
+    section.addEventListener('click', function(e) {
+        if (e.target.matches('.pagination a')) {
+            e.preventDefault();
+            fetch(e.target.href)
+                .then(response => response.text())
+                .then(html => {
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = html;
+                    // 섹션 ID로 새로 받은 내용만 추출 (있으면 해당 부분만, 없으면 전체)
+                    const newContent = tempDiv.querySelector('#' + sectionId);
+                    section.innerHTML = newContent ? newContent.innerHTML : tempDiv.innerHTML;
+                });
+        }
+    });
+}
+
+// 2. 여러 섹션에 적용 (예: 거래량 순위, 급상승, 급하락)
+setupPagination('rankingSection');
+setupPagination('priceUpRanking');
+
+
+//// 페이지네이션 바에 이벤트 위임
+//document.getElementById('rankingSection').addEventListener('click', function(e) {
+//    // .pagination a 요소 클릭 시
+//    if (e.target.matches('.pagination a')) {
+//        e.preventDefault(); // 기본 링크 이동 막기
+//        fetch(e.target.href)
+//            .then(response => response.text())
+//            .then(html => {
+//                // 새로 받은 HTML에서 테이블/페이지네이션 부분만 추출
+//                const tempDiv = document.createElement('div');
+//                tempDiv.innerHTML = html;
+//                // 예: 전체 조각 삽입
+//                this.innerHTML = tempDiv.innerHTML;
+//            });
+//    }
+//});
 
 
 

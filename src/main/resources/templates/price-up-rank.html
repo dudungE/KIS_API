@@ -58,19 +58,19 @@
         <ul class="pagination">
             <!-- 이전 페이지 -->
             <li th:classappend="${currentPage == 0} ? 'disabled'">
-                <a th:href="@{/price-up-view(page=${currentPage - 1}, size=${pageSize})}">‹</a>
+                <a th:href="@{/price-up-rank(page=${currentPage - 1}, size=${pageSize})}">‹</a>
             </li>
 
             <!-- 페이지 번호 -->
             <li th:each="i : ${#numbers.sequence(0, totalPages - 1)}"
                 th:classappend="${i == currentPage} ? 'active'">
-                <a th:href="@{/price-up-view(page=${i}, size=${pageSize})}"
+                <a th:href="@{/price-up-rank(page=${i}, size=${pageSize})}"
                    th:text="${i + 1}"></a>
             </li>
 
             <!-- 다음 페이지 -->
             <li th:classappend="${currentPage == totalPages - 1} ? 'disabled'">
-                <a th:href="@{/price-up-view(page=${currentPage + 1}, size=${pageSize})}">›</a>
+                <a th:href="@{/price-up-rank(page=${currentPage + 1}, size=${pageSize})}">›</a>
             </li>
         </ul>
     </nav>
