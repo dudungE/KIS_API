@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title th:text="${article != null ? '게시글 상세: ' + article.title : '게시글 없음'}"></title>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<div class="container mt-5" style="max-width: 800px;">
+  <div th:if="${message}" class="alert alert-success alert-dismissible fade show" role="alert">
+    <span th:text="${message}"></span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <div th:if="${errorMessage}" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <span th:text="${errorMessage}"></span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <h2 class="mb-4" th:text="${article != null ? article.title : '게시글을 찾을 수 없습니다.'}">게시글 제목</h2>
+
+  <div th:if="${article != null}">
+    <p class="text-muted"><strong>게시글 ID:</strong> <span th:text="${article.id}">1</span></p>
+    <p class="text-muted"><strong>관련 티커:</strong> <span th:text="${article.ticker}">STOCK</span></p>
+    <hr>
+    <div class="card p-4 mb-4 shadow-sm" style="min-height: 150px;">
+      <p class="lead" th:text="${article.content}">게시글 내용이 여기에 표시됩니다.</p>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-4">
+      <a th:href="@{/articles/{ticker}(ticker=${article.ticker})}" class="btn btn-secondary">
+        <i class="bi bi-list me-1"></i> 목록으로 돌아가기
+      </a>
+
+      <div>
+        <a th:href="@{/articles/{id}/edit(ticker=${article.ticker}, id=${article.id})}" class="btn btn-warning me-2">
+          <i class="bi bi-pencil me-1"></i> 수정
+        </a>
+
+        <form th:action="@{/articles/{id}/delete(id=${article.id})}" method="post" style="display:inline;">
+          <input type="hidden" name="_method" value="delete" />
+          <button type="submit" class="btn btn-danger" onclick="return confirm('정말로 이 게시글을 삭제하시겠습니까?');">
+            <i class="bi bi-trash me-1"></i> 삭제
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div th:unless="${article != null}" class="alert alert-warning mt-4" role="alert">
+    요청하신 게시글을 찾을 수 없습니다. 올바른 게시글 ID를 확인해주세요.
+    <a th:href="@{/}" class="btn btn-info ms-3">홈으로</a>
+  </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+</body>
+</html>

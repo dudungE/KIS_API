@@ -37,7 +37,7 @@ function loadPrice(button) {
 function loadCommunity(button) {
     hideAllSections();
     const iscd = button.dataset.iscd;
-    fetch('/stock/' + iscd + '/community', { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+    fetch('/articles/' + iscd + '/community', { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
       .then(response => response.text())
       .then(html => {
         const communityArea = document.getElementById('community-area');

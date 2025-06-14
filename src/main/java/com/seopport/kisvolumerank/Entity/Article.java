@@ -1,10 +1,7 @@
 package com.seopport.kisvolumerank.Entity;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -13,8 +10,9 @@ import java.time.LocalDateTime;
 
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-@Getter
+@Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 public class Article {
 
     @Id
@@ -50,5 +48,12 @@ public class Article {
     public void update(String title, String content) {
         this.title = title;
         this.content = content;
+    }
+
+    public void patch(Article article) {
+        if (article.title != null)
+            this.title = article.title;
+        if (article.content != null)
+            this.content = article.content;
     }
 }
